@@ -132,3 +132,92 @@ console.log(hobby)
 const { other: { about: { otherCompanies: [ , ,company3] } } } = person
 
 console.log(company3)
+
+
+console.log("***** ACTIVIDAD *****")
+
+// ********  ITERATION 1 *********
+
+// Iteration 1. Given the object 'data', use the object destructuring to be able
+// to console.log the following:
+// 1. the student first and last name,
+// 2. favorite football club,
+// 3. as well as the city and the country this student is coming from.
+// You can either destructure the nested elements in separate lines or do all in a single destructure.
+// You can console.log any way you want.
+
+const data = {
+  name: {
+    firstName: 'ana',
+    lastName: 'marino',
+  },
+  isStudent: true,
+  favoriteFootballTeam: 'fc barcelona',
+  hometown: {
+    city: 'buenos aires',
+    country: 'argentina',
+  },
+};
+
+// ... your  code  here
+
+const { name: { firstName, lastName }, favoriteFootballTeam, hometown: { city, country } } = data
+// const { name: { firstName, lastName } } = data
+console.log(firstName, lastName)
+
+// const { favoriteFootballTeam } = data
+console.log(favoriteFootballTeam)
+
+// const { hometown: { city, country } } = data
+console.log(city, country)
+
+// => expected Output:
+// ana marino
+// fc barcelona
+// buenos aires argentina
+
+// ********  ITERATION 2 *********
+
+// What would be expected outputs in the console.logs and why? Try to guess without running the code, then uncomment the console.log to verify your answer.
+
+// a:
+
+const [a, b] = [1];
+console.log(a * b); // <== NaN
+
+// b:
+const [c, d = 1] = [2];
+console.log(c * d); // <== 2
+
+// b:
+let [e, f = 2, g, h = 1] = [3, 4];
+console.log(e, f, g, h); // ==> ???
+
+
+
+
+// ********  ITERATION 3 *********
+
+// Given the object, use function parameter destructuring to get the following output:
+
+const greenSmoothie = {
+  leaf: 'spinach',
+  veggie: 'bok choy',
+  seed: 'ground flex seeds',
+  nut: 'peanut',
+  liquid: 'almond milk',
+};
+
+// destructure the object in the parameters itself
+function getIngredients({leaf, veggie, seed, nut, liquid}) {
+  return `To make the green smoothie,  you  should add: ${leaf}, ${veggie}, ${seed}, ${nut} and ${liquid}.`;
+}
+
+// ensure you pass the object as a parameter while calling the function below
+console.log(getIngredients(greenSmoothie));
+
+// => expected Output:
+// To make a green smoothie, you should add: spinach, bok choy, ground flex seeds, peanut and almond milk.
+
+// ********  SOLUTIONS *********
+// the full solution can be found here: https://gist.github.com/jorgeberrizbeitia/e26276e7d1e3eb7b6ce95092247213e1
