@@ -221,3 +221,72 @@ console.log(getIngredients(greenSmoothie));
 
 // ********  SOLUTIONS *********
 // the full solution can be found here: https://gist.github.com/jorgeberrizbeitia/e26276e7d1e3eb7b6ce95092247213e1
+
+
+
+
+//* Operador Spread (...) ESPARCIR
+
+console.log("*** OPERADOR SPREAD ***")
+
+const numbers = [4, 8, 15, 16, 23, 42]
+
+
+
+console.log(...numbers)
+
+// console.log( Math.max(10, 40, 3, 18) )
+console.log( Math.max(...numbers) )
+
+let students1 = ["Ronnie", "Asier", "Marcos", "Xavi"]
+let students2 = ["Alfonso", "Oriol", "Águeda"]
+
+const allStudents = [ ...students1, ...students2, "bob" ]
+console.log(allStudents)
+
+
+// clonar arrays
+
+const clone = [...numbers] // estoy clonando el primer nivel del array
+
+const reverseNumbers = clone.reverse()
+// const reverseNumbers = [...numbers].reverse()
+
+console.log(reverseNumbers)
+console.log(numbers)
+
+
+//* Operador Rest (...) EL RESTO DE...
+
+console.log("*** OPERADOR REST ***")
+
+const hobbies = ["surfear", "cocinar", "video juegos", "leer"]
+
+const [ hobby1, hobby2, ...elRestoDeLosHobbies ] = hobbies
+console.log(hobby1)
+console.log(hobby2)
+console.log(elRestoDeLosHobbies)
+
+
+function checkIfStudentPassed(...allNotes) {
+
+  // el operador rest en parametros, coje todos los argumentos y los almacena en un array
+  // console.log(allNotes)
+
+  const sum = allNotes.reduce((acc, note) => {
+    return acc + note
+  }, 0)
+
+  const promedio = sum / allNotes.length
+
+  if (promedio >= 5) {
+    console.log("Si, el etudiante aprobó")
+  } else {
+    console.log("No, el etudiante no aprobó :(")
+  }
+}
+
+checkIfStudentPassed(3)
+checkIfStudentPassed(3, 6)
+checkIfStudentPassed(5, 12, 8)
+checkIfStudentPassed(5, 12, 8, 5, 12, 8, 5, 12, 8, 5, 12, 8 ,5, 12, 8)
